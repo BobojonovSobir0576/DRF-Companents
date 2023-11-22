@@ -31,9 +31,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'drf_spectacular',
 
-    'authentification'
+    'authentification',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +117,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+if DEBUG:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+
+MEDIA_URL = "/media/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -177,6 +185,7 @@ SWAGGER_SETTINGS = {
     "USE_SESSION_AUTH": False,
 }
 
+AUTH_USER_MODEL = "authentification.CustomUser"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
