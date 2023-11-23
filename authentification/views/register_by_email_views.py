@@ -22,7 +22,7 @@ from authentification.serializers.register_by_email_serializer import (
     UserProfileSerializer,
     UserDetailSerializers
 )
-from authentification.email_utils import (
+from authentification.utils import (
     Util,
     PasswordReset
 )

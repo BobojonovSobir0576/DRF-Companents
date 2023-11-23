@@ -13,6 +13,10 @@ from authentification.models import CustomUser
 from .models import Message, Conversation
 from .serializers import MessageSerializer
 
+from notification.models import (
+    Notification
+)
+
 
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
@@ -53,6 +57,11 @@ class ChatConsumer(WebsocketConsumer):
             file_data = ContentFile(
                 base64.b64decode(file_str), name=f"{secrets.token_hex(8)}.{file_ext}"
             )
+            push_notification = Notification.objects.create(
+                name='MESSAGE_SENT',
+                sender=sender,
+                message=message
+            )
             _message = Message.objects.create(
                 sender=sender,
                 attachment=file_data,
@@ -60,6 +69,11 @@ class ChatConsumer(WebsocketConsumer):
                 conversation_id=conversation,
             )
         else:
+            push_notification = Notification.objects.create(
+                name='MESSAGE_SENT',
+                sender=sender,
+                message=message
+            )
             _message = Message.objects.create(
                 sender=sender,
                 text=message,
@@ -90,38 +104,10 @@ class ChatConsumer(WebsocketConsumer):
     def chat_message(self, event):
         dict_to_be_sent = event.copy()
         dict_to_be_sent.pop("type")
-
+        print(dict_to_be_sent)
         # Send message to WebSocket
         self.send(
                 text_data=json.dumps(
                     dict_to_be_sent
                 )
             )
-
-
-class OnlineStatusConsumer(AsyncConsumer):
-
-    async def websocket_connect(self, event):
-        # Called when a new websocket connection is established
-        print("connected", event)
-        user = self.scope['user']
-        self.update_user_status(user, 'online')
-
-    async def websocket_receive(self, event):
-        # Called when a message is received from the websocket
-        # Method NOT used
-        print("received", event)
-
-    async def websocket_disconnect(self, event):
-        # Called when a websocket is disconnected
-        print("disconnected", event)
-        user = self.scope['user']
-        self.update_user_status(user, 'offline')
-
-    @database_sync_to_async
-    def update_user_incr(self, user):
-        CustomUser.objects.filter(pk=user.pk).update(online_status=F('online') + 1)
-
-    @database_sync_to_async
-    def update_user_decr(self, user):
-        CustomUser.objects.filter(pk=user.pk).update(online_status=F('online') - 1)

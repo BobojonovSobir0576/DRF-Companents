@@ -7,6 +7,7 @@ from django.conf import settings
 from django.urls import reverse
 
 
+
 class Util:
 
     @staticmethod
@@ -16,6 +17,9 @@ class Util:
             body=data['email_body'],
             to=[data['to_email']])
         email.send()
+
+
+
 
 
 class PasswordReset:

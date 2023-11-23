@@ -1,15 +1,18 @@
 from django.urls import path
 from authentification.views.register_by_email_views import (
-RegisteByEmailView,
-VerifyEmail,
-LoginApiView,
-UserProfileView,
-UserDetailView,
-RequestPasswordRestEmail,
-PasswordTokenCheckView,
-SetNewPasswordView,
-LogoutView
+    RegisteByEmailView,
+    VerifyEmail,
+    LoginApiView,
+    UserProfileView,
+    UserDetailView,
+    RequestPasswordRestEmail,
+    PasswordTokenCheckView,
+    SetNewPasswordView,
+    LogoutView
 )
+
+
+
 
 urlpatterns = [
     # authentification by email
@@ -22,4 +25,5 @@ urlpatterns = [
     path('password-reset-by-email/<uidb64>/<token>/', PasswordTokenCheckView.as_view(), name='password-reset-confirm'),
     path('reset_password_complete-by-email/', SetNewPasswordView.as_view(), name='password_reset_complete'),
     path('logout-by-email/', LogoutView.as_view(), name='logout'),
+
 ]

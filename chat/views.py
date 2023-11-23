@@ -25,6 +25,9 @@ from authentification.models import (
 
 from authentification.renderers import UserRenderers
 
+from notification.models import (
+    Notification
+)
 
 class StartConversationView(APIView):
     render_classes = [UserRenderers]
@@ -56,6 +59,11 @@ class StartConversationView(APIView):
 @api_view(['GET'])
 def get_conversation(request, convo_id):
     conversation = Conversation.objects.filter(id=convo_id)
+    queryset_update = Notification.objects.select_related('sender').filter(
+        sender=request.user
+    ).filter(
+        is_seen=False
+    ).update(is_seen=True)
     if not conversation.exists():
         return Response({'message': 'Conversation does not exist'})
     else:

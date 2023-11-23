@@ -17,7 +17,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from authentification.models import (
     CustomUser,
 )
-from authentification.email_utils import (
+from authentification.utils import (
     Util,
     PasswordReset
 )
