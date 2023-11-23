@@ -20,13 +20,13 @@ class NewMyUser(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (
             None,
-            {"fields": ("avatar",)},
+            {"fields": ("avatar", "is_varified")},
         ),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (
             None,
-            {"fields": ("avatar",)},
+            {"fields": ("avatar", "is_varified")},
         ),
     )
 

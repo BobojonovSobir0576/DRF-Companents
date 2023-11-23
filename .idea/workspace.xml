@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fdb3223-5b62-457c-b764-603547108a8e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/authentification/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authentification/serializers/register_by_email_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/serializers/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/email_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/serializers/serializers_sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/serializers/serializers_sms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/views/register_by_email_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2YWWuMJQCAw406Bz7kcQYRiRZE2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\flask\DRF-Companents\authentification\tests" />
+      <recent name="C:\Users\admin\Desktop\flask\DRF-Companents\authentification\views" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fdb3223-5b62-457c-b764-603547108a8e" name="Changes" comment="" />
+      <created>1700642039214</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700642039214</updated>
+    </task>
+    <servers />
+  </component>
+</project>

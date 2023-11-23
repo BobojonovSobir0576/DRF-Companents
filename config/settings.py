@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
 
     'authentification',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -44,7 +46,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'authentification.middleware.SocialAuthExceptionMiddleware'
 ]
+
 
 ROOT_URLCONF = 'config.urls'
 
@@ -64,8 +68,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
+# WSGI_APPLICATION = 'config.wsgi.application'
+ASGI_APPLICATION = "config.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -75,13 +79,11 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "companents",
         "USER": "postgres",
-        "PASSWORD": "1",
+        "PASSWORD": "0576",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -167,11 +169,14 @@ SIMPLE_JWT = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+FRONTEND_URL = 'http://localhost:5174'
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://localhost:3000",
     "http://localhost:5174",
+    FRONTEND_URL
 ]
 
 SWAGGER_SETTINGS = {
@@ -193,3 +198,26 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sobirbobojonov2000@gmail.com'
 EMAIL_HOST_PASSWORD = 'rhngiswryyybicyo'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+LOGIN_URL = 'login'
+
+LOGOUT_REDIRECT_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'logout'
+
+# local
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
+# server
+# CHANNEL_LAYERS = {
+#    "default": {
+#        "BACKEND": "channels_redis.core.RedisChannelLayer",
+#        "CONFIG": {
+#            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+#        },
+#    },
+# }

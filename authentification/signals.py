@@ -32,9 +32,6 @@ def password_reset_token_created(
             reset_password_token.key,
         ),
     }
-    print(reset_password_token.user.username)
-    print(reset_password_token.key)
-    # render email text
     email_html_message = render_to_string(
         "email/password_reset_email.html", context)
     email_plaintext_message = render_to_string(
