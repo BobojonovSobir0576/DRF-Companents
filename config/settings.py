@@ -38,6 +38,18 @@ INSTALLED_APPS = [
     'authentification',
     'chat',
     'notification',
+
+    # other apps
+    'dj_rest_auth',
+    'social_django',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
+    'rest_framework.authtoken',
+
 ]
 
 
@@ -50,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 
@@ -82,7 +95,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "companents",
         "USER": "postgres",
-        "PASSWORD": "0576",
+        "PASSWORD": "1",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
@@ -229,3 +242,53 @@ SOCIAL_AUTH_PASSWORD = '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'
 #        },
 #    },
 # }
+
+
+# Authentication backends
+AUTHENTICATION_CLASSES = (
+    'dj_rest_auth.authentication.AllAuthJWTAuthentication',
+)
+
+# # Allauth settings
+# SITE_ID = 1
+# ACCOUNT_EMAIL_VERIFICATION = 'none'  # or 'mandatory'
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_LOGOUT_ON_GET = True
+
+# Social account settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': 'your-google-client-id',
+            'secret': 'your-google-client-secret',
+        }
+    },
+    'github': {
+        'APP': {
+            'client_id': 'your-github-client-id',
+            'secret': 'your-github-client-secret',
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '863244545502688',
+            'secret': '8d9a789122fc5f51ab48d03831412c45',
+        }
+    },
+}
+AUTHENTICATION_BACKENDS = [
+     'social_core.backends.facebook.FacebookOAuth2',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'your-google-client-id'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'your-google-client-secret'
+
+SOCIAL_AUTH_GITHUB_KEY = 'your-github-client-id'
+SOCIAL_AUTH_GITHUB_SECRET = 'your-github-client-secret'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '863244545502688'
+SOCIAL_AUTH_FACEBOOK_SECRET = '8d9a789122fc5f51ab48d03831412c45'

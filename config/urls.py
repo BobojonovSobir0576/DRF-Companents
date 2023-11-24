@@ -9,6 +9,13 @@ from drf_spectacular.views import SpectacularAPIView
 admin.site.site_url = None
 
 urlpatterns = [
+     # other paths
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('auth/social/', include('allauth.socialaccount.urls')),
+
+     path('social-auth/', include('social_django.urls', namespace='social')),
+
     path('admin/', admin.site.urls),
     path("schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
@@ -19,7 +26,7 @@ urlpatterns = [
         name="swagger-ui",
     ),
 
-    path('auth/api/', include('authentification.urls')),
+    path('api/', include('authentification.urls')),
     path('chat/api/', include('chat.urls')),
     path('notification/api/', include('notification.urls')),
 ]
