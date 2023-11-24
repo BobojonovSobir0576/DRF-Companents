@@ -262,8 +262,8 @@ AUTHENTICATION_CLASSES = (
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': 'your-google-client-id',
-            'secret': 'your-google-client-secret',
+            'client_id': '954836385070-lgrgf01po3an5m8bihec7g6vibs0onit.apps.googleusercontent.com',
+            'secret': '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',
         }
     },
     'github': {
@@ -285,8 +285,8 @@ AUTHENTICATION_BACKENDS = [
     # ...
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'your-google-client-id'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'your-google-client-secret'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '954836385070-lgrgf01po3an5m8bihec7g6vibs0onit.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 SOCIAL_AUTH_GITHUB_KEY = 'your-github-client-id'
 SOCIAL_AUTH_GITHUB_SECRET = 'your-github-client-secret'
