@@ -215,6 +215,10 @@ CHANNEL_LAYERS = {
     }
 }
 
+# Google
+
+GOOGLE_CLIENT_ID = '409261742060-bu1vn2j91081ed3l6aa0u4eplqvmglt2.apps.googleusercontent.com'
+SOCIAL_AUTH_PASSWORD = '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'
 
 # server
 # CHANNEL_LAYERS = {

@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fdb3223-5b62-457c-b764-603547108a8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/notification/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DRF-Companents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DRF-Companents.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authentification/views/register_by_sms_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/email_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentification/serializers/register_by_email_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/serializers/register_by_email_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/serializers/serializers_sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/signals.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/authentification/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentification/views/auth_sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentification/views/register_by_email_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/views/register_by_email_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/routing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/serializers/notification_serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/views/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -10,7 +10,11 @@ from authentification.views.register_by_email_views import (
     SetNewPasswordView,
     LogoutView
 )
-
+from authentification.views.register_by_sms_views import (
+    UserSignUpViews,
+    UserSignInViews,
+    CheckSmsCode
+)
 
 
 
@@ -25,5 +29,10 @@ urlpatterns = [
     path('password-reset-by-email/<uidb64>/<token>/', PasswordTokenCheckView.as_view(), name='password-reset-confirm'),
     path('reset_password_complete-by-email/', SetNewPasswordView.as_view(), name='password_reset_complete'),
     path('logout-by-email/', LogoutView.as_view(), name='logout'),
+
+    # authentification by sms
+    path('register-by-sms/', UserSignUpViews.as_view(), name='register-sms'),
+    path('login-by-sms/', UserSignInViews.as_view(), name='login-sms'),
+    path('check-code-by-sms/', CheckSmsCode.as_view(), name='check-sms'),
 
 ]

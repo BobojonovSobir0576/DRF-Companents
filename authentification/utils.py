@@ -5,6 +5,7 @@ from django.utils.encoding import smart_bytes
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
 from django.urls import reverse
+from eskiz_sms import EskizSMS
 
 
 
@@ -19,16 +20,12 @@ class Util:
         email.send()
 
 
-
-
-
 class PasswordReset:
     @staticmethod
     def send_email(user, request):
         uidb64 = urlsafe_base64_encode(smart_bytes(user.id))
         token = tokens.PasswordResetTokenGenerator().make_token(user)
-        print(token)
-        print(uidb64)
+
         doamin = get_current_site(request).domain
 
         path = reverse('password_reset_confirm', kwargs={'uidb64': uidb64, 'token': token})
@@ -43,3 +40,16 @@ class PasswordReset:
         }
 
         Util.send(data)
+
+
+def send_sms(username, code_s):
+    """Send SMS Function"""
+    email = "Ibroxim.2001@mail.ru"
+    password = "MQVib4PtVRhLOpjYcfRZRbEesmuxDWInZaEtSlaX"
+    eskiz = EskizSMS(email=email, password=password)
+    eskiz.send_sms(
+                    username,
+                    f"Sms kod {code_s}",
+                    from_whom="4546",
+                    callback_url=None
+                    )

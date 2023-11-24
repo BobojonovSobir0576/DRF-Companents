@@ -12,15 +12,13 @@ from django.shortcuts import reverse
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.validators import UniqueValidator
 
 """ Functions """
 from authentification.models import (
     CustomUser,
 )
-from authentification.utils import (
-    Util,
-    PasswordReset
-)
+
 
 class RolesSerializer(serializers.ModelSerializer):
 
@@ -38,7 +36,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class RegisterByEmailSerializer(serializers.ModelSerializer):
-
+    username = serializers.CharField(max_length=255, min_length=5, required=True,
+                                     validators=[UniqueValidator(queryset=CustomUser.objects.all())])
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
     email = serializers.EmailField(max_length=255, write_only=False, allow_null=True)
 
@@ -100,6 +99,11 @@ class LoginSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['username', 'password']
         read_only_fields = ('username',)
+
+    def validate_username(self, value):
+        if not value.strip():
+            raise serializers.ValidationError("Username cannot be empty.")
+        return value
 
 
 class PasswordResetCompleteSerializer(serializers.Serializer):

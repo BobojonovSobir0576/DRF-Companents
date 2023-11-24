@@ -46,7 +46,7 @@ class RegisteByEmailView(generics.GenericAPIView):
     serializer_class = RegisterByEmailSerializer
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+        serializer = self.serializer_class(data=request.data, context={'avatar': request.FILES.get('avtar', None)})
         serializer.is_valid(raise_exception=True)
         serializer.save()
         user = CustomUser.objects.get(email=serializer.data['email'])
