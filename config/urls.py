@@ -26,7 +26,7 @@ urlpatterns = [
         name="swagger-ui",
     ),
 
-    path('api/', include('authentification.urls')),
+    path('authentification/api/', include('authentification.urls')),
     path('chat/api/', include('chat.urls')),
     path('notification/api/', include('notification.urls')),
 ]
