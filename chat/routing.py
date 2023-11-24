@@ -10,5 +10,5 @@ from notification.consumers import (
 
 websocket_urlpatterns = [
     path('ws/chat/<int:room_name>/', ChatConsumer.as_asgi()),
-    path('ws/notification/', NotificationConsumer.as_asgi())
+    path('ws/notification/<int:room_name>/', NotificationConsumer.as_asgi())
 ]

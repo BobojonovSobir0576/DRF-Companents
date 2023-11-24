@@ -12,8 +12,8 @@ from notification.serializers.notification_serializers import (
 
 class NotificationConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        self.room_name = 'notification'
-        self.room_group_name = "notification"
+        self.room_name = self.scope["url_route"]["kwargs"]["room_name"]
+        self.room_group_name = f"chat_{self.room_name}"
         # Join room group
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
 
@@ -51,7 +51,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
 
         # Send message to room group
         await self.channel_layer.group_send(
-            self.room_group_name, {"type": "chat_message", "message": message}
+            self.room_group_name, {"type": "chat_message", }
         )
 
     # Receive message from room group
