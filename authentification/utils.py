@@ -53,3 +53,15 @@ def send_sms(username, code_s):
                     from_whom="4546",
                     callback_url=None
                     )
+
+
+def jwt_response_payload_handler(token, user=None, request=None):
+    return {
+        'token': token,
+        'user': {
+            'id': user.id,
+            'email': user.email,
+            'username': user.username,
+            # Add other user data as needed
+        }
+    }

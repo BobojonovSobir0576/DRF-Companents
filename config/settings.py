@@ -15,6 +15,7 @@ SECRET_KEY = 'django-insecure-p_@0$fqrb!kl+d2s2#24!a&d8(lqfca96mojxip0#0**6&6hte
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'notification',
 
     # other apps
+    'django.contrib.sites', 
     'dj_rest_auth',
     'social_django',
     'allauth',
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.facebook',
     'rest_framework.authtoken',
+    'dj_rest_auth.registration',
 
 ]
 
@@ -66,7 +69,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-
+SITE_ID = 1 
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -231,8 +234,8 @@ CHANNEL_LAYERS = {
 
 # Google
 
-GOOGLE_CLIENT_ID = '409261742060-bu1vn2j91081ed3l6aa0u4eplqvmglt2.apps.googleusercontent.com'
-SOCIAL_AUTH_PASSWORD = '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'
+# GOOGLE_CLIENT_ID = '409261742060-bu1vn2j91081ed3l6aa0u4eplqvmglt2.apps.googleusercontent.com'
+# SOCIAL_AUTH_PASSWORD = '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'
 
 # server
 # CHANNEL_LAYERS = {
@@ -280,19 +283,35 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 AUTHENTICATION_BACKENDS = [
-     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
 ]
+REST_USE_JWT = True
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+    'authentification.utils.jwt_response_payload_handler',
+}
 
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'facebook': {
+#         'SCOPE': ['email', 'public_profile'],
+#         'METHOD': 'oauth2',
+#         'VERIFIED_EMAIL': False,
+#     },
+# }
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '954836385070-lgrgf01po3an5m8bihec7g6vibs0onit.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
-SOCIAL_AUTH_GITHUB_KEY = 'your-github-client-id'
-SOCIAL_AUTH_GITHUB_SECRET = 'your-github-client-secret'
+SOCIAL_AUTH_GITHUB_KEY = '86f2bfc0529d0ca764cc'
+SOCIAL_AUTH_GITHUB_SECRET = 'bed949e6563f5acca103cba656115384845c9a2a'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '863244545502688'
 SOCIAL_AUTH_FACEBOOK_SECRET = '8d9a789122fc5f51ab48d03831412c45'
+SOCIAL_AUTH_FACEBOOK_APP_NAME = 'facebook' 
 
-
-FORCE_SCRIPT_NAME = '/v1'
+# FORCE_SCRIPT_NAME = '/v1'

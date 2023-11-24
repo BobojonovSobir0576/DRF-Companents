@@ -10,11 +10,16 @@ admin.site.site_url = None
 
 urlpatterns = [
      # other paths
+    # path('auth/', include('dj_rest_auth.urls')),
+    # path('auth/registration/', include('dj_rest_auth.registration.urls')),
+    # path('auth/social/', include('allauth.socialaccount.urls')),
+
+    #  path('social-auth/', include('social_django.urls', namespace='social')),
+
+     path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.socialaccount.urls')),
     path('auth/', include('dj_rest_auth.urls')),
     path('auth/registration/', include('dj_rest_auth.registration.urls')),
-    path('auth/social/', include('allauth.socialaccount.urls')),
-
-     path('social-auth/', include('social_django.urls', namespace='social')),
 
     path('admin/', admin.site.urls),
     path("schema/", SpectacularAPIView.as_view(), name="schema"),
@@ -25,7 +30,14 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
-
+     path(
+        "api/token/",
+        jwt_views.TokenObtainPairView.as_view(), name="token_obtain_pair"
+    ),
+    path(
+        "api/token/refresh/",
+        jwt_views.TokenRefreshView.as_view(), name="token_refresh"
+    ),
     path('authentification/api/', include('authentification.urls')),
     path('chat/api/', include('chat.urls')),
     path('notification/api/', include('notification.urls')),
