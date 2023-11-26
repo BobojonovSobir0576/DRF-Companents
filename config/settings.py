@@ -271,8 +271,8 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     'github': {
         'APP': {
-            'client_id': 'your-github-client-id',
-            'secret': 'your-github-client-secret',
+            'client_id': '86f2bfc0529d0ca764cc',
+            'secret': 'bed949e6563f5acca103cba656115384845c9a2a',
         }
     },
     'facebook': {
@@ -314,4 +314,4 @@ SOCIAL_AUTH_FACEBOOK_KEY = '863244545502688'
 SOCIAL_AUTH_FACEBOOK_SECRET = '8d9a789122fc5f51ab48d03831412c45'
 SOCIAL_AUTH_FACEBOOK_APP_NAME = 'facebook' 
 
-# FORCE_SCRIPT_NAME = '/v1'
+FORCE_SCRIPT_NAME = '/v1'

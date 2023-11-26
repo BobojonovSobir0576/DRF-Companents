@@ -11,10 +11,10 @@ class FacebookTokenView(APIView):
         # Exchange the authorization code for an access token
         access_token_url = 'https://graph.facebook.com/v13.0/oauth/access_token'
         params = {
-            'client_id': 'your-facebook-app-id',
-            'client_secret': 'your-facebook-app-secret',
+            'client_id': '863244545502688',
+            'client_secret': '8d9a789122fc5f51ab48d03831412c45',
             'code': code,
-            'redirect_uri': 'your-redirect-uri',
+            'redirect_uri': 'http://127.0.0.1:8000/docs',
         }
 
         response = requests.get(access_token_url, params=params)
