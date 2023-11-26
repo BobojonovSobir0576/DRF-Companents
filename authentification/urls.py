@@ -17,7 +17,17 @@ from authentification.views.register_by_sms_views import (
     CheckSmsCode
 )
 
-from authentification.socail.views import FacebookSocialAuthView, GoogleSocialAuthView, FacebookLogin, FacebookSignup, GitHubLogin, GoogleLogin, FacebookLoginTwo, GoogleView
+from authentification.socail.views import (
+    FacebookSocialAuthView,
+    GoogleSocialAuthView,
+    FacebookLogin,
+    FacebookSignup,
+    GitHubLogin,
+    GoogleLogin,
+    FacebookLoginTwo,
+    GoogleView,
+    GoogleJw
+)
 from authentification.fac import FacebookTokenView
 
 
@@ -41,6 +51,7 @@ urlpatterns = [
     path('facebook/login/', FacebookLogin.as_view()),
     path('facebook/reg/', FacebookSignup.as_view()),
     path('github/login/', GitHubLogin.as_view()),
-    path('GoogleView/', GoogleView.as_view())
+    path('GoogleView/', GoogleView.as_view()),
+    path('GoogleJw/', GoogleJw.as_view())
 
 ]

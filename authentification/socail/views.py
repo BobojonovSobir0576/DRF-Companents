@@ -98,3 +98,8 @@ class GoogleView(APIView):
         response['access_token'] = str(token.access_token)
         response['refresh_token'] = str(token)
         return Response(response)
+
+
+
+class GoogleJw(SocialLoginView):
+    adapter_class = GoogleOAuth2Adapter
