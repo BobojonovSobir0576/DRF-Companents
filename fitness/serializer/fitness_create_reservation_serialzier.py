@@ -4,9 +4,7 @@ from rest_framework import serializers
 from authentification.serializers.register_by_email_serializer import (
     UserProfileSerializer
 )
-from fitness.serializer.fitness_serializer import (
-    FitnessDeatilsSerializer
-)
+
 
 from fitness.models import (
     Fitness,
@@ -17,6 +15,29 @@ from fitness.models import (
     FitnessMultipleImageUpload
 )
 
+class FitnessUploadMultipleImagesSerialzier(serializers.ModelSerializer):
+
+    class Meta:
+        model = FitnessMultipleImageUpload
+        fields = '__all__'
+
+
+class FitnessDeatilsSerializer(serializers.ModelSerializer):
+    images = FitnessUploadMultipleImagesSerialzier(read_only=True, many=True)
+
+    class Meta:
+        model = Fitness
+        fields = [
+            'images',
+            'id',
+            'title',
+            'content',
+            'categories',
+            'amenities',
+            'user',
+            'teacher',
+            'img',
+        ]
 
 
 class FitnessCreateReservationSerializers(serializers.ModelSerializer):
