@@ -8,6 +8,7 @@ from find_clinic.views import (
     ConsultationClinicViews,
     ConsultationCrudViews,
     ConsultationUserHistoryViews,
+    ConsultationAllViews,
 )
 
 urlpatterns = [
@@ -19,4 +20,5 @@ urlpatterns = [
     path('consultation_clinic_views/', ConsultationClinicViews.as_view()),
     path('consultation_crud_views/<int:pk>/', ConsultationCrudViews.as_view()),
     path('consultation_user_history_views/', ConsultationUserHistoryViews.as_view()),
+    path('consultation_all_views/', ConsultationAllViews.as_view()),
 ]

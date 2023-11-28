@@ -201,3 +201,12 @@ class ConsultationUserHistoryViews(APIView):
             {"history": serializer.data},
             status=status.HTTP_200_OK
         )
+
+
+class ConsultationAllViews(APIView):
+    render_classes = [UserRenderers]
+    perrmisson_class = [IsAuthenticated]
+    def get(self, request):
+        objects_list = Consultation.objects.all()
+        serializers = ConsultationSerializers(objects_list, many=True)
+        return Response(serializers.data, status=status.HTTP_200_OK)
