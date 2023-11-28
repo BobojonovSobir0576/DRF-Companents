@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p_@0$fqrb!kl+d2s2#24!a&d8(lqfca96mojxip0#0**6&6hte'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -321,4 +321,4 @@ SOCIAL_AUTH_FACEBOOK_KEY = '863244545502688'
 SOCIAL_AUTH_FACEBOOK_SECRET = '8d9a789122fc5f51ab48d03831412c45'
 SOCIAL_AUTH_FACEBOOK_APP_NAME = 'facebook' 
 
-# FORCE_SCRIPT_NAME = '/v1'
+FORCE_SCRIPT_NAME = '/v1'
