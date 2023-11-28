@@ -56,6 +56,6 @@ urlpatterns = [
     path('GoogleView/', GoogleView.as_view()),
     path('GoogleJw/', GoogleJw.as_view()),
     path('user_profiles_views/', UserProfilesViews.as_view()),
-    path('change_password/', change_password)
+    path('change_password/', change_password),
 
 ]

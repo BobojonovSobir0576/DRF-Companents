@@ -160,14 +160,12 @@ class LogoutSerializer(serializers.Serializer):
 class UserInformationSerializers(serializers.ModelSerializer):
     """User Profiles Serializers"""
 
-    groups = UserGroupsSerializers(read_only=True, many=True)
-
     class Meta:
         """User Model Fileds"""
 
         model = CustomUser
         fields = [
-            "id", "username", "first_name", "last_name", "avatar", "groups"]
+            "id", "username", "first_name", "last_name", "avatar"]
 
 
 class ChangePasswordSerializer(serializers.Serializer):
