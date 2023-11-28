@@ -18,7 +18,7 @@ from fitness.models import (
 )
 
 class FitnessCreateReservationSerializers(serializers.ModelSerializer):
-
+    user = UserProfileSerializer(read_only=True)
     class Meta:
         model = FitnessCreateReservation
         fields = [
@@ -54,24 +54,25 @@ class FitnessDetailsReservationSerializers(serializers.ModelSerializer):
 
 
 class FitnessReservationSerilaizer(serializers.ModelSerializer):
-     class Meta:
-         model = FitnessReservation
-         fields = ['id', 'fitness', 'user', 'created_at']
+    user = UserProfileSerializer(read_only=True)
+    class Meta:
+        model = FitnessReservation
+        fields = ['id', 'fitness', 'user', 'created_at']
 
-     def create(self, validated_data):
-         users = validated_data.pop()
+    def create(self, validated_data):
+        users = validated_data.pop()
 
-         create = FitnessReservation.objects.create(
+        create = FitnessReservation.objects.create(
              **validated_data
          )
 
-         create.fitness = self.context.get('fitness')
-         create.user = self.context.get('user')
-         create.save()
-         get_fitness = FitnessCreateReservation.objects.get(id=self.context.get('fitness').id)
-         for k in users:
-             get_fitness.user.add(k)
-             get_fitness.save()
+        create.fitness = self.context.get('fitness')
+        create.user = self.context.get('user')
+        create.save()
+        get_fitness = FitnessCreateReservation.objects.get(id=self.context.get('fitness').id)
+        for k in users:
+            get_fitness.user.add(k)
+            get_fitness.save()
 
-         return create
+        return create
 
