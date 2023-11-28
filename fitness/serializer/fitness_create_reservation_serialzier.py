@@ -39,7 +39,7 @@ class FitnessCreateReservationSerializers(serializers.ModelSerializer):
 
 
 class FitnessDetailsReservationSerializers(serializers.ModelSerializer):
-    user = UserProfileSerializer(Many=True, read_only=True)
+    user = UserProfileSerializer(many=True, read_only=True)
     fitness = FitnessDeatilsSerializer(read_only=True)
 
     class Meta:
