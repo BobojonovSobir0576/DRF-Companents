@@ -99,7 +99,7 @@ class UserListSerializers(serializers.ModelSerializer):
 
 class ConsultationSerializers(serializers.ModelSerializer):
     """Consultation Serializers"""
-
+    clinic_id = ClinicsSerializers(read_only=True)
     doctor_id = UserListSerializers(read_only=True)
     user_id = UserListSerializers(read_only=True)
 
