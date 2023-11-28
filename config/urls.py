@@ -41,9 +41,13 @@ urlpatterns = [
     path('authentification/api/', include('authentification.urls')),
     path('chat/api/', include('chat.urls')),
     path('notification/api/', include('notification.urls')),
+<<<<<<< HEAD
     path('fitness/api/', include('fitness.urls')),
 
 
+=======
+    path('find_clinic/api/', include('find_clinic.urls')),
+>>>>>>> b2a79718d70e5d443489cf06c312a1b56f743f8a
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
