@@ -41,6 +41,9 @@ urlpatterns = [
     path('authentification/api/', include('authentification.urls')),
     path('chat/api/', include('chat.urls')),
     path('notification/api/', include('notification.urls')),
+    path('fitness/api/', include('fitness.urls')),
+
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
