@@ -154,3 +154,22 @@ class LogoutSerializer(serializers.Serializer):
             RefreshToken(self.token).blacklist()
         except TokenError:
             self.fail('bad_token')
+
+
+
+class UserInformationSerializers(serializers.ModelSerializer):
+    """User Profiles Serializers"""
+
+    groups = UserGroupsSerializers(read_only=True, many=True)
+
+    class Meta:
+        """User Model Fileds"""
+
+        model = CustomUser
+        fields = [
+            "id", "username", "first_name", "last_name", "avatar", "groups"]
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)

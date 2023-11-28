@@ -17,6 +17,8 @@ from fitness.models import (
     FitnessMultipleImageUpload
 )
 
+
+
 class FitnessCreateReservationSerializers(serializers.ModelSerializer):
     user = UserProfileSerializer(many=True, read_only=True)
     class Meta:
@@ -55,6 +57,8 @@ class FitnessDetailsReservationSerializers(serializers.ModelSerializer):
 
 class FitnessReservationSerilaizer(serializers.ModelSerializer):
     user = UserProfileSerializer(read_only=True)
+    fitness = FitnessDeatilsSerializer(read_only=True)
+
     class Meta:
         model = FitnessReservation
         fields = ['id', 'fitness', 'user', 'created_at']

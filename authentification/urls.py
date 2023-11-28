@@ -14,7 +14,9 @@ from authentification.views.register_by_email_views import (
 from authentification.views.register_by_sms_views import (
     UserSignUpViews,
     UserSignInViews,
-    CheckSmsCode
+    CheckSmsCode,
+    UserProfilesViews,
+    change_password,
 )
 
 from authentification.socail.views import (
@@ -52,6 +54,8 @@ urlpatterns = [
     path('facebook/reg/', FacebookSignup.as_view()),
     path('github/login/', GitHubLogin.as_view()),
     path('GoogleView/', GoogleView.as_view()),
-    path('GoogleJw/', GoogleJw.as_view())
+    path('GoogleJw/', GoogleJw.as_view()),
+    path('user_profiles_views/', UserProfilesViews.as_view()),
+    path('change_password/', change_password)
 
 ]

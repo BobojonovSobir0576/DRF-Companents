@@ -20,7 +20,9 @@ from authentification.serializers.register_by_email_serializer import (
     EmailVerificationSerializer,
     RegisterByEmailSerializer,
     UserProfileSerializer,
-    UserDetailSerializers
+    UserDetailSerializers,
+    UserInformationSerializers,
+    ChangePasswordSerializer,
 )
 from authentification.utils import (
     Util,
@@ -108,3 +110,39 @@ class CheckSmsCode(APIView):
             {"error": "SMS code error"},
             status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION,
         )
+
+
+class UserProfilesViews(APIView):
+    """User Pofiles classs"""
+
+    render_classes = [UserRenderers]
+    permission = [IsAuthenticated]
+
+    def get(self, request):
+        """User information views"""
+        serializer = UserInformationSerializers(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def change_password(request):
+    if request.method == 'POST':
+        serializer = ChangePasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            user = request.user
+            if user.check_password(serializer.data.get('old_password')):
+                user.set_password(serializer.data.get('new_password'))
+                user.save()
+                update_session_auth_hash(request, user)
+                return Response(
+                    {'message': 'Password changed successfully.'},
+                    status=status.HTTP_200_OK
+                )
+            return Response(
+                {'error': 'Incorrect old password.'},
+                status=status.HTTP_400_BAD_REQUEST
+                )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
